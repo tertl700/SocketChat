@@ -34,7 +34,7 @@ def send(conn, addr, user):
                 connected = False
                 conn.send(f'Server: {user} left'.encode(FORMAT))
             # check for send command and properly send message
-            elif split_msg[0] == 'send': 
+            elif split_msg and split_msg[0] == 'send': 
                 message = msg.replace('send ', '')
                 print(f'{user}: {message}')
                 conn.send(f'{user}: {message}'.encode(FORMAT))
